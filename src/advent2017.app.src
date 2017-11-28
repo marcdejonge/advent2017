@@ -2,14 +2,18 @@
  [{description, "An OTP application"},
   {vsn, "0.1.0"},
   {registered, []},
-  {mod, { advent2017_app, []}},
+  {mod, { advent2017, []}},
   {applications,
    [kernel,
     stdlib
    ]},
   {env,[]},
-  {modules, []},
-
+  {modules, 
+   [advent2017,
+    advent2017_sup,
+    advent2017_server,
+    challenge_zero
+   ]},
   {maintainers, []},
   {licenses, ["WTFPL 2"]},
   {links, []}

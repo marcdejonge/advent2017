@@ -3,12 +3,15 @@
 %% @end
 %%%-------------------------------------------------------------------
 
--module(advent2017_app).
+-module(advent2017).
 
 -behaviour(application).
 
 %% Application callbacks
 -export([start/2, stop/1]).
+
+%% The interface for outside
+-export([challenge/1]).
 
 %%====================================================================
 %% API
@@ -24,5 +27,8 @@ stop(_State) ->
     ok.
 
 %%====================================================================
-%% Internal functions
+%% Interface functions
 %%====================================================================
+
+challenge(Challenge) ->
+    advent2017_server:run_challenge(Challenge).
