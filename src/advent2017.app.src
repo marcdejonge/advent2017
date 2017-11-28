@@ -1,5 +1,5 @@
 {application, advent2017,
- [{description, "An OTP application"},
+ [{description, "Advent of Code 2017 implementation"},
   {vsn, "0.1.0"},
   {registered, []},
   {mod, { advent2017, []}},

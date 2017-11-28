@@ -26,7 +26,10 @@ handle_call({challenge, Challenge}, _From, State) ->
     case Challenge of
         0 -> {reply, {ok, challenge_zero:run()}, State};
         _ -> {reply, {error, "No such challenge was found"}, State}
-    end.
+    end;
+
+handle_call(stop, _From, State) ->
+    {stop, normal, ok, State}.
 
 % No implementation for these
 handle_cast(_Cast, State) ->

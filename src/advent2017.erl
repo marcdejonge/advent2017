@@ -11,7 +11,7 @@
 -export([start/2, stop/1]).
 
 %% The interface for outside
--export([challenge/1]).
+-export([challenge/1,challengeAll/0]).
 
 %%====================================================================
 %% API
@@ -32,3 +32,6 @@ stop(_State) ->
 
 challenge(Challenge) ->
     advent2017_server:run_challenge(Challenge).
+
+challengeAll() ->
+    [challenge(C) || C <- [0]].
