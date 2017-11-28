@@ -24,8 +24,8 @@ init([]) ->
 
 handle_call({challenge, Challenge}, _From, State) ->
     case Challenge of
-        0 -> {reply, challenge_zero:run(), State};
-        _ -> {noreply, State}
+        0 -> {reply, {ok, challenge_zero:run()}, State};
+        _ -> {reply, {error, "No such challenge was found"}, State}
     end.
 
 % No implementation for these
