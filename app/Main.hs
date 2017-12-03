@@ -14,7 +14,7 @@ main = do day <- prompt "Which day do you want to run? "
           putStrLn result
 
 runDay :: Int -> IO String
-runDay day = writeDayResults 1 <$> mapNr day
+runDay day = writeDayResults day <$> mapNr day
 
 mapNr day =
     case day of
