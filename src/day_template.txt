@@ -1,0 +1,10 @@
+module DayX(run) where
+
+run = do numbers <- readNumbers
+         return (part1 numbers, part2 numbers)
+
+readNumbers :: IO ???
+readNumbers = readFile "data/dayX.txt"
+
+part1 _ = "Not yet implemented"
+part2 _ = "Not yet implemented"

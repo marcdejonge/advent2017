@@ -1,6 +1,4 @@
-module Day1
-    ( run
-    ) where
+module Day1(run) where
 
 import Data.Char
 

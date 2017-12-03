@@ -7,15 +7,23 @@
             "label": "Advent2017 build",
             "type": "shell",
             "command": "stack build",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
             "problemMatcher": [],
             "presentation": {
                 "echo": true,
                 "reveal": "silent",
                 "focus": false,
+                "panel": "dedicated"
+            }
+        },
+        {
+            "label": "GHCi shell",
+            "type": "shell",
+            "command": "stack ghci",
+            "problemMatcher": [],
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
                 "panel": "dedicated"
             }
         },
@@ -32,7 +40,7 @@
             "presentation": {
                 "echo": true,
                 "reveal": "always",
-                "focus": false,
+                "focus": true,
                 "panel": "dedicated"
             }
         }
