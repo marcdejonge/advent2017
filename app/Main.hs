@@ -3,6 +3,7 @@ module Main where
 import System.IO
 import qualified Day1
 import qualified Day2
+import qualified Day3
 
 prompt msg = do putStr msg
                 hFlush stdout
@@ -20,6 +21,7 @@ mapNr day =
     case day of
         1 -> showPair <$> Day1.run
         2 -> showPair <$> Day2.run
+        3 -> return $ showPair Day3.run
         _ -> fail "Unknown day"
 
 showPair :: (Show a, Show b) => (a, b) -> (String, String)
