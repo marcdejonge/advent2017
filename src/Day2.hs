@@ -19,4 +19,15 @@ maxDiff min max (x:xs)
 maxDiff min max [] = max - min
 
 
-part2 _ = "Not yet implemented"
+part2 numbers = sum $ map divisors numbers
+
+divisors :: [Int] -> Int
+divisors (x:xs) = divisor x xs + divisors xs
+divisors [] = 0
+
+divisor :: Int -> [Int] -> Int
+divisor y (x:xs)
+    | y < x && x `rem` y == 0 = x `div` y + divisor y xs
+    | y > x && y `rem` x == 0 = y `div` x + divisor y xs
+    | otherwise               = divisor y xs
+divisor _ [] = 0
