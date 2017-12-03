@@ -29,14 +29,7 @@ start_link() ->
 %% Child :: {Id,StartFunc,Restart,Shutdown,Type,Modules}
 -spec init(any()) -> {ok, {supervisor:sup_flags(), [supervisor:child_spec()]}}.
 init([]) ->
-    {ok, { {one_for_all, 0, 1}, 
-         [{advent2017,
-           {advent2017_server, start_link, []},
-           permanent,
-           5000,
-           worker,
-           [advent2017_server]
-         }]}}.
+    {ok, { {one_for_all, 0, 1}, []}}.
 
 %%====================================================================
 %% Internal functions

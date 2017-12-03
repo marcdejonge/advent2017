@@ -11,8 +11,7 @@
   {modules, 
    [advent2017,
     advent2017_sup,
-    advent2017_server,
-    challenge_zero
+    day1
    ]},
   {maintainers, []},
   {licenses, ["WTFPL 2"]},
