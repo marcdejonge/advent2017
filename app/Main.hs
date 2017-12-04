@@ -4,6 +4,7 @@ import System.IO
 import qualified Day1
 import qualified Day2
 import qualified Day3
+import qualified Day4
 
 prompt msg = do putStr msg
                 hFlush stdout
@@ -22,6 +23,7 @@ mapNr day =
         1 -> showPair <$> Day1.run
         2 -> showPair <$> Day2.run
         3 -> return $ showPair Day3.run
+        4 -> showPair <$> Day4.run
         _ -> fail "Unknown day"
 
 showPair :: (Show a, Show b) => (a, b) -> (String, String)

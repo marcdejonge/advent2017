@@ -18,7 +18,6 @@ maxDiff min max (x:xs)
     | otherwise = maxDiff min max xs
 maxDiff min max [] = max - min
 
-
 part2 numbers = sum $ map divisors numbers
 
 divisors :: [Int] -> Int
