@@ -18,11 +18,12 @@ part2 = calcSteps (\x -> if x >= 3 then x - 1 else x + 1)
 calcSteps :: (Int -> Int) -> [Int] -> Int
 calcSteps update numbers = runST $ do 
            array <- newListArray (1, length numbers) numbers :: ST s (STUArray s Int Int)
-           step update 1 array (length numbers) 0
+           step update 1 array (length numbers)
 
-step update ix array length accum
-  | ix > length = return accum
+step update ix array length
+  | ix > length = return 0
   | ix <= 0     = fail "ix <= 0"
   | otherwise   = do curr <- readArray array ix
                      writeArray array ix (update curr)
-                     step update (ix + curr) array length (accum + 1)
+                     next <- step update (ix + curr) array length
+                     return (next + 1)
