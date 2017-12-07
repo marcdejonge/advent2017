@@ -8,6 +8,7 @@ import qualified Day2
 import qualified Day3
 import qualified Day4
 import qualified Day5
+import qualified Day6
 
 prompt msg = do putStr msg
                 hFlush stdout
@@ -15,12 +16,15 @@ prompt msg = do putStr msg
 
 main :: IO ()
 main = do day <- prompt "Which day do you want to run? "
-          start <- getCurrentTime
-          result <- runDay $ read day
-          putStrLn result
-          end <- getCurrentTime
-          let diff = diffUTCTime end start
-          printf "Computation time: %s\n" (show diff)
+          if day /= ""
+          then do start <- getCurrentTime
+                  result <- runDay $ read day
+                  putStrLn result
+                  end <- getCurrentTime
+                  let diff = diffUTCTime end start
+                  printf "Computation time: %s\n" (show diff)
+                  main
+          else do printf "Bye"
 
 runDay :: Int -> IO String
 runDay day = writeDayResults day <$> mapNr day
@@ -32,6 +36,7 @@ mapNr day =
         3 -> return $ showPair Day3.run
         4 -> showPair <$> Day4.run
         5 -> showPair <$> Day5.run
+        6 -> showPair <$> Day6.run
         _ -> fail "Unknown day"
 
 showPair :: (Show a, Show b) => (a, b) -> (String, String)
