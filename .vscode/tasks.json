@@ -30,7 +30,7 @@
         {
             "label": "Advent2017 run",
             "type": "shell",
-            "command": "stack exec advent2017-exe",
+            "command": "stack exec -- advent2017-exe +RTS -p",
             "dependsOn": "Advent2017 build",
             "group": {
                 "kind": "build",
